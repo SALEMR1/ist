@@ -51,6 +51,21 @@
         display: none;
     }
     
+    /* Improve touch targets for mobile */
+    .nav-menu a, .btn, .footer-links a, .footer-departments a {
+        padding: 12px;
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Improve form controls for mobile */
+    input, textarea, select, button {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+    
     /* Mobile Navigation Menu */
     .nav-menu {
         position: fixed;

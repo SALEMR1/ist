@@ -2,14 +2,25 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>قسم الخدمات البترولية واللحام - معهد T.S.I</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="قسم الخدمات البترولية واللحام في معهد I.S.T - تعليم متميز في مجالات اللحام والخدمات البترولية وفرص عمل واعدة للخريجين">
+    <meta name="keywords" content="خدمات بترولية، لحام، معهد I.S.T، فحص اللحامات، صيانة المنشآت البترولية، السلامة والصحة المهنية">
+    <meta name="author" content="I.S.T">
+    <meta name="theme-color" content="#0c4a6e">
+    <meta property="og:title" content="قسم الخدمات البترولية واللحام - معهد I.S.T">
+    <meta property="og:description" content="تعليم متميز في مجالات اللحام والخدمات البترولية وفرص عمل واعدة للخريجين">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_EG">
+    <title>قسم الخدمات البترولية واللحام - معهد I.S.T</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="mobile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="canonical" href="https://www.ist-edu.com/petroleum.html">
     <style>
         .department-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=70') no-repeat center center/cover;
         }
         
         /* تنسيقات قسم نبذة عن القسم */
@@ -202,7 +213,9 @@
         }
     </style>
 </head>
-<body>
+<body class="loading">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
     <!-- Header Section -->
     <!-- Mobile Menu (Outside normal flow for proper z-index) -->
     <div class="mobile-menu-wrapper">
@@ -238,7 +251,7 @@
     </header>
 
     <!-- Department Hero Section -->
-    <section class="hero department-hero">
+    <section class="hero department-hero" id="main-content">
         <div class="container">
             <div class="hero-content">
                 <h1>قسم الخدمات البترولية واللحام</h1>
@@ -399,7 +412,7 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="cta" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; color: #fff; text-align: center; padding: 80px 0;">
+    <section class="cta" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=70') no-repeat center center/cover; color: #fff; text-align: center; padding: 80px 0;">
         <div class="container">
             <h2>ابدأ مستقبلك المهني معنا</h2>
             <p style="margin: 20px 0 30px;">انضم إلى قسم الخدمات البترولية واللحام واحصل على تعليم متميز وفرص عمل واعدة</p>
@@ -443,6 +456,35 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+        // Add page load performance improvements
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+            
+            // Lazy load images
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(img => imageObserver.observe(img));
+            } else {
+                // Fallback for browsers that don't support Intersection Observer
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

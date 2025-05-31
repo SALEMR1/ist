@@ -58,11 +58,52 @@ body {
     width: 100%;
     max-width: 100%;
     position: relative;
+    opacity: 0;
+}
+
+/* Accessibility improvements */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    z-index: 9999;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* Add smooth transition when page loads */
 body.loaded {
     opacity: 1;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.3);
+}
+
+/* High contrast for text on images */
+.hero p, .hero h1, .hero .btn {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Improve color contrast for better accessibility */
+.footer-links a, .footer-departments a {
+    color: #e2e8f0;
+}
+
+/* Improve performance with hardware acceleration */
+.department-card, .btn, .footer-logo a, .hero-content {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 /* Add touch-friendly hover effect */
@@ -135,6 +176,10 @@ ul {
 img {
     max-width: 100%;
     height: auto;
+    /* Add alt text indicator for missing alt text */
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--muted-color);
 }
 
 .btn {
@@ -2074,6 +2119,142 @@ header {
 
 .phone-link:active {
     transform: scale(0.95);
+}
+
+/* تنسيقات الفوتر الجديدة */
+footer {
+    background: linear-gradient(135deg, #0c4a6e, #0f172a);
+    color: #fff;
+    padding: 60px 0 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--i-color), var(--s-color), var(--t-color));
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo a {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.footer-logo p {
+    color: #cbd5e1;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-family: 'El Messiri', 'Tajawal', sans-serif;
+}
+
+.footer-links h3, .footer-departments h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Aref Ruqaa Ink', 'Amiri', serif;
+}
+
+.footer-links h3::after, .footer-departments h3::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(to left, transparent, var(--secondary-color), transparent);
+    bottom: -8px;
+    right: 0;
+    border-radius: 2px;
+}
+
+.footer-links ul, .footer-departments ul {
+    padding: 0;
+}
+
+.footer-links li, .footer-departments li {
+    margin-bottom: 12px;
+}
+
+.footer-links a, .footer-departments a {
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    position: relative;
+    padding-right: 20px;
+    display: inline-block;
+}
+
+.footer-links a:before, .footer-departments a:before {
+    content: '\f104';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover, .footer-departments a:hover {
+    color: #fff;
+    transform: translateX(-5px);
+}
+
+.footer-links a:hover:before, .footer-departments a:hover:before {
+    color: var(--accent-color);
+    transform: translateY(-50%) translateX(-5px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright p {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
+/* تأثيرات إضافية للفوتر */
+.footer-logo a:hover span {
+    animation: pulse 1s infinite;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-links h3::after, .footer-departments h3::after {
+        right: 25%;
+        width: 50%;
+    }
+    
+    .footer-links a:before, .footer-departments a:before {
+        display: none;
+    }
+    
+    .footer-links a, .footer-departments a {
+        padding-right: 0;
+    }
 }
 
 /* تنسيقات صورة المعهد */
