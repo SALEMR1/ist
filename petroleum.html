@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>قسم الخدمات البترولية واللحام - معهد T.S.I</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .department-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        }
+        
+        /* تنسيقات قسم نبذة عن القسم */
+        .about-content-full {
+            padding: 20px 0;
+        }
+        
+        .overview-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .overview-point {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-right: 4px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .overview-point:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .overview-point::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .overview-point:hover::before {
+            opacity: 1;
+        }
+        
+        .point-icon {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .overview-point:hover .point-icon {
+            transform: scale(1.2);
+            color: var(--primary-color);
+        }
+        
+        .overview-point p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark-color);
+            margin: 0;
+            font-family: 'El Messiri', 'Tajawal', sans-serif;
+        }
+        
+        /* تنسيقات أخرى */
+        .courses-list {
+            margin-top: 30px;
+        }
+        
+        .course-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .course-item h3 i {
+            margin-left: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .facilities {
+            margin-top: 50px;
+        }
+        
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .facility-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facility-item i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* تنسيقات قسم فرص العمل */
+        .career-opportunities {
+            margin-top: 40px;
+        }
+        
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .career-item {
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .career-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .career-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+        
+        .career-item:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .career-item i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .career-item:hover i {
+            transform: scale(1.2);
+            color: var(--primary-color);
+        }
+        
+        .career-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-family: 'Aref Ruqaa Ink', 'Amiri', serif;
+        }
+        
+        .career-item p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--dark-color);
+            font-family: 'El Messiri', 'Tajawal', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <!-- Mobile Menu (Outside normal flow for proper z-index) -->
+    <div class="mobile-menu-wrapper">
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <ul class="nav-menu">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="index.html#about">عن المعهد</a></li>
+            <li><a href="index.html#departments">الأقسام</a></li>
+            <li><a href="index.html#contact">اتصل بنا</a></li>
+        </ul>
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="t-color">t.</span><span class="s-color">s.</span><span class="i-color">i</span>
+                </a>
+                <div class="logo-tagline">معهد الدراسات والتكنولوجيا</div>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="desktop-nav">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="index.html#about">عن المعهد</a></li>
+                    <li><a href="index.html#departments">الأقسام</a></li>
+                    <li><a href="index.html#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Department Hero Section -->
+    <section class="hero department-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>قسم الخدمات البترولية واللحام</h1>
+                <p>تعليم متميز وتدريب عملي في مجال الخدمات البترولية وتقنيات اللحام المتقدمة</p>
+                <a href="https://wa.me/201004410522?text=مرحباً،%20أرغب%20في%20التسجيل%20في%20قسم%20الخدمات%20البترولية%20واللحام" class="btn register-btn"><i class="fab fa-whatsapp"></i>سجل الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Overview -->
+    <section class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>نبذة عن القسم</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="courses-list">
+                <div class="course-item">
+                    <h3><i class="fas fa-star-of-life"></i> قسم رائد</h3>
+                    <p>يعد قسم الخدمات البترولية واللحام من الأقسام الرائدة في معهد T.S.I، حيث يقدم تعليماً متميزاً وتدريباً عملياً في مجالات الخدمات البترولية وتقنيات اللحام المتقدمة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-graduation-cap"></i> تأهيل متميز</h3>
+                    <p>يهدف القسم إلى تأهيل كوادر فنية متخصصة قادرة على العمل في قطاع النفط والغاز والصناعات المرتبطة به، وذلك من خلال برامج تعليمية متطورة تجمع بين الجوانب النظرية والتطبيقية.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-flask"></i> معامل متطورة</h3>
+                    <p>يتميز القسم بوجود معامل ومختبرات مجهزة بأحدث التقنيات والمعدات التي تحاكي بيئة العمل الحقيقية، مما يتيح للطلاب فرصة التدريب العملي واكتساب المهارات اللازمة لسوق العمل.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-briefcase"></i> فرص عمل متميزة</h3>
+                    <p>يوفر القسم فرص عمل متميزة للخريجين في مختلف مجالات صناعة النفط والغاز والبتروكيماويات، وكذلك في مجالات اللحام المتخصصة والصناعات الثقيلة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-certificate"></i> شهادات معتمدة</h3>
+                    <p>يحصل الطلاب على شهادات معتمدة في مجالات الخدمات البترولية وتقنيات اللحام المختلفة، مما يعزز فرصهم في سوق العمل المحلي والإقليمي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses" style="background-color: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2>البرامج والمقررات</h2>
+                <div class="underline"></div>
+            </div>
+            <p class="text-center">يقدم القسم مجموعة متنوعة من البرامج والمقررات التي تغطي مختلف جوانب الخدمات البترولية وتقنيات اللحام:</p>
+            
+            <div class="courses-list">
+                <div class="course-item">
+                    <h3><i class="fas fa-oil-well"></i> تكنولوجيا الحفر والإنتاج</h3>
+                    <p>دراسة أساسيات عمليات الحفر وإنتاج النفط والغاز، وتشمل تقنيات الحفر المختلفة ومعدات الإنتاج وطرق تشغيلها وصيانتها.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-fire-flame-simple"></i> معالجة النفط والغاز</h3>
+                    <p>دراسة عمليات معالجة النفط والغاز الطبيعي، وتشمل فصل المكونات وتنقيتها وتحسين خصائصها لتلبية متطلبات الصناعة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-helmet-safety"></i> السلامة في الصناعات البترولية</h3>
+                    <p>دراسة إجراءات السلامة والصحة المهنية في مواقع العمل البترولية، وكيفية التعامل مع المخاطر والحوادث المحتملة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-wand-sparkles"></i> تقنيات اللحام المتقدمة</h3>
+                    <p>دراسة مختلف أنواع اللحام وتطبيقاتها في الصناعات البترولية، وتشمل لحام القوس الكهربائي ولحام التنجستن واللحام بالغاز وغيرها.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-microscope"></i> اختبار وفحص اللحامات</h3>
+                    <p>دراسة طرق اختبار وفحص جودة اللحامات باستخدام الاختبارات المدمرة وغير المدمرة، وتحليل العيوب وطرق معالجتها.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities" style="background-color: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2>المرافق والتجهيزات</h2>
+                <div class="underline"></div>
+            </div>
+            <p class="text-center">يضم القسم مجموعة من المرافق والتجهيزات المتطورة التي تدعم العملية التعليمية والتدريبية:</p>
+            
+            <div class="courses-list">
+                <div class="course-item">
+                    <h3><i class="fas fa-flask"></i> معامل الخدمات البترولية</h3>
+                    <p>مجهزة بأحدث المعدات لدراسة خصائص النفط والغاز وعمليات المعالجة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-hammer"></i> ورش اللحام</h3>
+                    <p>مزودة بمختلف أنواع معدات اللحام للتدريب العملي على تقنيات اللحام المختلفة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-vr-cardboard"></i> معامل المحاكاة</h3>
+                    <p>تتيح للطلاب التدرب على عمليات الحفر والإنتاج في بيئة افتراضية آمنة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-microscope"></i> مختبرات الفحص والاختبار</h3>
+                    <p>مجهزة بأدوات ومعدات فحص واختبار اللحامات والمواد المختلفة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Opportunities -->
+    <section class="careers">
+        <div class="container">
+            <div class="section-header">
+                <h2>فرص العمل</h2>
+                <div class="underline"></div>
+            </div>
+            <p class="text-center">يتيح التخرج من قسم الخدمات البترولية واللحام العديد من فرص العمل في مجالات متنوعة:</p>
+            
+            <div class="courses-list">
+                <div class="course-item">
+                    <h3><i class="fas fa-industry"></i> شركات النفط والغاز</h3>
+                    <p>العمل في شركات النفط والغاز المحلية والعالمية بوظائف فنية وإدارية متنوعة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-oil-well"></i> خدمات الحفر والإنتاج</h3>
+                    <p>العمل في مجال خدمات الحفر والإنتاج وتشغيل وصيانة معدات الحفر.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-tools"></i> صيانة المنشآت البترولية</h3>
+                    <p>العمل في مجال صيانة المعدات والمنشآت البترولية ومحطات المعالجة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-fire"></i> اللحام المتخصص</h3>
+                    <p>العمل في مجال اللحام المتخصص للمنشآت الصناعية والبترولية والأنابيب.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-microscope"></i> فحص واختبار اللحامات</h3>
+                    <p>العمل في مجال فحص واختبار اللحامات والمواد باستخدام الاختبارات المختلفة.</p>
+                </div>
+                
+                <div class="course-item">
+                    <h3><i class="fas fa-hard-hat"></i> السلامة والصحة المهنية</h3>
+                    <p>العمل في مجال السلامة والصحة المهنية في المنشآت البترولية والصناعية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; color: #fff; text-align: center; padding: 80px 0;">
+        <div class="container">
+            <h2>ابدأ مستقبلك المهني معنا</h2>
+            <p style="margin: 20px 0 30px;">انضم إلى قسم الخدمات البترولية واللحام واحصل على تعليم متميز وفرص عمل واعدة</p>
+            <a href="index.html#contact" class="btn">تواصل معنا الآن</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <span class="t-color">t.</span><span class="s-color">s.</span><span class="i-color">i</span>
+                    </a>
+                    <p>نحو مستقبل أفضل من خلال التعليم المتميز</p>
+                </div>
+                <div class="footer-links">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#about">عن المعهد</a></li>
+                        <li><a href="index.html#departments">الأقسام</a></li>
+                        <li><a href="index.html#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-departments">
+                    <h3>الأقسام</h3>
+                    <ul>
+                        <li><a href="petroleum.html">خدمات بترولية ولحام</a></li>
+                        <li><a href="tourism.html">فنادق وسياحة</a></li>
+                        <li><a href="construction.html">مساحة وتشييد وبناء</a></li>
+                        <li><a href="computer.html">حاسب وبرمجة</a></li>
+                        <li><a href="ac.html">تكييف وتبريد</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 معهد I.S.T. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

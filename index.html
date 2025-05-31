@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>معهد الدراسات والتكنولوجيا | I.S.T</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <!-- Mobile Menu (Outside normal flow for proper z-index) -->
+    <div class="mobile-menu-wrapper">
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <ul class="nav-menu">
+            <li><a href="#home" class="active">الرئيسية</a></li>
+            <li><a href="#about">عن المعهد</a></li>
+            <li><a href="#departments">الأقسام</a></li>
+            <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="t-color">t.</span><span class="s-color">s.</span><span class="i-color">i</span>
+                </a>
+                <div class="logo-tagline">معهد الدراسات والتكنولوجيا</div>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul class="desktop-nav">
+                    <li><a href="#home" class="active">الرئيسية</a></li>
+                    <li><a href="#about">عن المعهد</a></li>
+                    <li><a href="#departments">الأقسام</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="welcome-heading-container">
+                    <h1 class="welcome-heading">مرحباً بكم في معهد</h1>
+                    <div class="logo-centered"><span class="t-color">t</span><span class="s-color">.s.</span><span class="i-color">i</span></div>
+                </div>
+                <p>نحن نقدم تعليماً متميزاً في مجالات متنوعة لبناء مستقبل أفضل</p>
+                <a href="#departments" class="btn">استكشف الأقسام</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>عن المعهد</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>من نحن</h3>
+                    <p>معهد I.S.T هو مؤسسة تعليمية رائدة تهدف إلى تقديم تعليم عالي الجودة في مجالات متخصصة. نحن نسعى لتأهيل الطلاب بالمهارات العملية والنظرية اللازمة للنجاح في سوق العمل.</p>
+                    <p>يتميز المعهد بكادر تعليمي متميز ومرافق حديثة ومناهج متطورة تواكب احتياجات سوق العمل المحلي والعالمي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departments" class="departments">
+        <div class="container">
+            <div class="section-header">
+                <h2>الأقسام</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="departments-grid">
+                <!-- Department 1 -->
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-oil-well"></i>
+                    </div>
+                    <h3>خدمات بترولية ولحام</h3>
+                    <p>قسم متخصص في تقنيات الخدمات البترولية واللحام، يؤهل الطلاب للعمل في قطاع النفط والغاز.</p>
+                    <a href="petroleum.html" class="btn-small">زيارة القسم</a>
+                </div>
+
+                <!-- Department 2 -->
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>فنادق وسياحة</h3>
+                    <p>يقدم القسم تدريباً متكاملاً في مجال إدارة الفنادق والسياحة، مع التركيز على المهارات العملية.</p>
+                    <a href="tourism.html" class="btn-small">زيارة القسم</a>
+                </div>
+
+                <!-- Department 3 -->
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>مساحة وتشييد وبناء</h3>
+                    <p>يركز على تقنيات المساحة والتشييد والبناء، مع تدريب عملي على أحدث التقنيات في المجال.</p>
+                    <a href="construction.html" class="btn-small">زيارة القسم</a>
+                </div>
+
+                <!-- Department 4 -->
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>حاسب وبرمجة</h3>
+                    <p>يقدم تعليماً متميزاً في علوم الحاسب والبرمجة، مع التركيز على التقنيات الحديثة والمطلوبة في سوق العمل.</p>
+                    <a href="computer.html" class="btn-small">زيارة القسم</a>
+                </div>
+
+                <!-- Department 5 -->
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>تكييف وتبريد</h3>
+                    <p>يوفر تدريباً متخصصاً في مجال أنظمة التكييف والتبريد، مع التركيز على الصيانة والتركيب.</p>
+                    <a href="ac.html" class="btn-small">زيارة القسم</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>اتصل بنا</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>العنوان: <span class="address-highlight">الإسكندرية - كليوباترا</span></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>الهاتف: <a href="tel:035214026" class="phone-link">03/5214026</a></p>
+                    </div>
+                    <div class="contact-item mobile-numbers">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div class="mobile-numbers-list">
+                            <p>موبايل:</p>
+                            <ul>
+                                <li><a href="tel:01221778720" class="phone-link">01221778720</a></li>
+                                <li><a href="tel:01147140063" class="phone-link">01147140063</a></li>
+                                <li><a href="tel:01004410522" class="phone-link">01004410522</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="contact-item whatsapp-contact">
+                        <i class="fab fa-whatsapp"></i>
+                        <p>واتساب: 01004410522</p>
+                        <a href="https://wa.me/201004410522?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20معهد%20I.S.T" class="whatsapp-link">تواصل معنا الآن <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 class="whatsapp-title">تواصل معنا عبر الواتساب</h3>
+                    <p class="whatsapp-subtitle">اختر سبب التواصل:</p>
+                    <div class="whatsapp-options">
+                        <a href="https://wa.me/201004410522?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20التسجيل%20في%20معهد%20I.S.T" class="whatsapp-option">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>استفسار عن التسجيل</span>
+                        </a>
+                        <a href="https://wa.me/201004410522?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20الأقسام%20والتخصصات%20في%20معهد%20I.S.T" class="whatsapp-option">
+                            <i class="fas fa-book"></i>
+                            <span>استفسار عن الأقسام</span>
+                        </a>
+                        <a href="https://wa.me/201004410522?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20الرسوم%20الدراسية%20في%20معهد%20I.S.T" class="whatsapp-option">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>استفسار عن الرسوم</span>
+                        </a>
+                        <a href="https://wa.me/201004410522?text=مرحباً،%20أرغب%20في%20زيارة%20المعهد%20والاطلاع%20على%20المرافق" class="whatsapp-option">
+                            <i class="fas fa-building"></i>
+                            <span>زيارة المعهد</span>
+                        </a>
+                        <a href="https://wa.me/201004410522" class="whatsapp-option">
+                            <i class="fas fa-comments"></i>
+                            <span>استفسار آخر</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <span class="t-color">t.</span><span class="s-color">s.</span><span class="i-color">i</span>
+                    </a>
+                    <p>نحو مستقبل أفضل من خلال التعليم المتميز</p>
+                </div>
+                <div class="footer-links">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">عن المعهد</a></li>
+                        <li><a href="#departments">الأقسام</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-departments">
+                    <h3>الأقسام</h3>
+                    <ul>
+                        <li><a href="petroleum.html">خدمات بترولية ولحام</a></li>
+                        <li><a href="tourism.html">فنادق وسياحة</a></li>
+                        <li><a href="construction.html">مساحة وتشييد وبناء</a></li>
+                        <li><a href="computer.html">حاسب وبرمجة</a></li>
+                        <li><a href="ac.html">تكييف وتبريد</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 معهد I.S.T. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
