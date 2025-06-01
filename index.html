@@ -12,15 +12,42 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_EG">
     <title>معهد الدراسات والتكنولوجيا | I.S.T</title>
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Reem+Kufi:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- Additional Arabic fonts with font-display:swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- خط جديد للعناوين الحمراء -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"></noscript>
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="styles.css" as="style">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="mobile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Font Awesome with optimized loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+    
     <link rel="canonical" href="https://www.ist-edu.com/">
+    
+    <!-- Font loading optimization -->
+    <script>
+      // Font loading optimization
+      if (sessionStorage.fontsLoaded) {
+        document.documentElement.classList.add('fonts-loaded');
+      }
+    </script>
 </head>
 <body class="loading">
     <!-- Header Section -->
@@ -41,7 +68,7 @@
                 <a href="index.html">
                     <span class="t-color">t.</span><span class="s-color">s.</span><span class="i-color">i</span>
                 </a>
-                <div class="logo-tagline">معهد الدراسات والتكنولوجيا</div>
+                <div class="logo-tagline" style="font-family: 'Lalezar', sans-serif; font-weight: 400;">معهد الدراسات والتكنولوجيا</div>
             </div>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -62,7 +89,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="welcome-heading-container">
-                    <h1 class="welcome-heading">مرحباً بكم في معهد</h1>
+                    <h1 class="welcome-heading" style="font-family: 'Cairo', sans-serif; font-weight: 500;">مرحباً بكم في معهد</h1>
                     <div class="logo-centered"><span class="t-color">t</span><span class="s-color">.s.</span><span class="i-color">i</span></div>
                 </div>
                 <p>نحن نقدم تعليماً متميزاً في مجالات متنوعة لبناء مستقبل أفضل</p>
@@ -95,7 +122,7 @@
     <section id="departments" class="departments">
         <div class="container">
             <div class="section-header">
-                <h2>الأقسام</h2>
+                <h2 style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">الأقسام</h2>
                 <div class="underline"></div>
             </div>
             <div class="departments-grid">
@@ -104,7 +131,7 @@
                     <div class="department-icon">
                         <i class="fas fa-oil-well"></i>
                     </div>
-                    <h3>خدمات بترولية ولحام</h3>
+                    <h3 style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">خدمات بترولية ولحام</h3>
                     <p>قسم متخصص في تقنيات الخدمات البترولية واللحام، يؤهل الطلاب للعمل في قطاع النفط والغاز.</p>
                     <a href="petroleum.html" class="btn-small">زيارة القسم</a>
                 </div>
@@ -114,7 +141,7 @@
                     <div class="department-icon">
                         <i class="fas fa-hotel"></i>
                     </div>
-                    <h3>فنادق وسياحة</h3>
+                    <h3 style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">فنادق وسياحة</h3>
                     <p>يقدم القسم تدريباً متكاملاً في مجال إدارة الفنادق والسياحة، مع التركيز على المهارات العملية.</p>
                     <a href="tourism.html" class="btn-small">زيارة القسم</a>
                 </div>
@@ -124,7 +151,7 @@
                     <div class="department-icon">
                         <i class="fas fa-building"></i>
                     </div>
-                    <h3>مساحة وتشييد وبناء</h3>
+                    <h3 style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">مساحة وتشييد وبناء</h3>
                     <p>يركز على تقنيات المساحة والتشييد والبناء، مع تدريب عملي على أحدث التقنيات في المجال.</p>
                     <a href="construction.html" class="btn-small">زيارة القسم</a>
                 </div>
@@ -134,7 +161,7 @@
                     <div class="department-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>حاسب وبرمجة</h3>
+                    <h3 style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">حاسب وبرمجة</h3>
                     <p>يقدم تعليماً متميزاً في علوم الحاسب والبرمجة، مع التركيز على التقنيات الحديثة والمطلوبة في سوق العمل.</p>
                     <a href="computer.html" class="btn-small">زيارة القسم</a>
                 </div>
@@ -144,7 +171,7 @@
                     <div class="department-icon">
                         <i class="fas fa-snowflake"></i>
                     </div>
-                    <h3>تكييف وتبريد</h3>
+                    <h3 style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">تكييف وتبريد</h3>
                     <p>يوفر تدريباً متخصصاً في مجال أنظمة التكييف والتبريد، مع التركيز على الصيانة والتركيب.</p>
                     <a href="ac.html" class="btn-small">زيارة القسم</a>
                 </div>
@@ -156,23 +183,23 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2>اتصل بنا</h2>
+                <h2 style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">اتصل بنا</h2>
                 <div class="underline"></div>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>العنوان: <span class="address-highlight">الإسكندرية - كليوباترا</span></p>
+                        <p><span style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">العنوان:</span> <span class="address-highlight" style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">الإسكندرية - كليوباترا</span></p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <p>الهاتف: <a href="tel:035214026" class="phone-link">03/5214026</a></p>
+                        <p><span style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">الهاتف:</span> <a href="tel:035214026" class="phone-link">03/5214026</a></p>
                     </div>
                     <div class="contact-item mobile-numbers">
                         <i class="fas fa-mobile-alt"></i>
                         <div class="mobile-numbers-list">
-                            <p>موبايل:</p>
+                            <p><span style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">موبايل:</span></p>
                             <ul>
                                 <li><a href="tel:01221778720" class="phone-link">01221778720</a></li>
                                 <li><a href="tel:01147140063" class="phone-link">01147140063</a></li>
@@ -182,12 +209,12 @@
                     </div>
                     <div class="contact-item whatsapp-contact">
                         <i class="fab fa-whatsapp"></i>
-                        <p>واتساب: 01004410522</p>
+                        <p><span style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">واتساب:</span> 01004410522</p>
                         <a href="https://wa.me/201004410522?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20معهد%20I.S.T" class="whatsapp-link">تواصل معنا الآن <i class="fas fa-arrow-left"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3 class="whatsapp-title">تواصل معنا عبر الواتساب</h3>
+                    <h3 class="whatsapp-title" style="font-family: 'Tajawal', 'El Messiri', sans-serif; font-weight: 500;">تواصل معنا عبر الواتساب</h3>
                     <p class="whatsapp-subtitle">اختر سبب التواصل:</p>
                     <div class="whatsapp-options">
                         <a href="https://wa.me/201004410522?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20التسجيل%20في%20معهد%20I.S.T" class="whatsapp-option">
@@ -252,37 +279,50 @@
         </div>
     </footer>
 
+    <!-- Preload critical JavaScript -->
+    <link rel="preload" href="script.js" as="script">
     <script src="script.js" defer></script>
     <script>
-        // Add page load performance improvements
+        // Inline critical performance improvements
         document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('loaded');
             
-            // Ensure fonts are loaded
+            // Ensure fonts are loaded with better performance
             if ('fonts' in document) {
                 Promise.all([
                     document.fonts.load('1em "El Messiri"'),
                     document.fonts.load('1em "Reem Kufi"')
                 ]).then(() => {
-                    console.log('Fonts loaded successfully');
                     document.documentElement.classList.add('fonts-loaded');
+                    sessionStorage.fontsLoaded = true;
                 }).catch(err => {
                     console.warn('Font loading failed:', err);
                 });
             }
             
-            // Lazy load images
+            // Optimized lazy loading with reduced reflows
             const lazyImages = document.querySelectorAll('img[data-src]');
             if ('IntersectionObserver' in window) {
                 const imageObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const img = entry.target;
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
+                            // Prevent layout shift by setting dimensions before loading
+                            if (img.dataset.width && img.dataset.height) {
+                                img.width = img.dataset.width;
+                                img.height = img.dataset.height;
+                            }
+                            const newImg = new Image();
+                            newImg.onload = function() {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            };
+                            newImg.src = img.dataset.src;
                             imageObserver.unobserve(img);
                         }
                     });
+                }, {
+                    rootMargin: '200px' // Load images 200px before they appear in viewport
                 });
                 
                 lazyImages.forEach(img => imageObserver.observe(img));

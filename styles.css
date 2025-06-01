@@ -44,7 +44,7 @@ html {
 }
 
 body {
-    font-family: 'El Messiri', 'Reem Kufi', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     line-height: 1.7;
     color: var(--text-color);
     background-color: var(--bg-color);
@@ -102,7 +102,7 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
 /* Improve performance with hardware acceleration */
 .department-card, .btn, .footer-logo a, .hero-content {
     transform: translateZ(0);
-    will-change: transform;
+    /* will-change removed for better performance */
     backface-visibility: hidden;
 }
 
@@ -112,30 +112,20 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
     box-shadow: var(--hover-shadow) !important;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rakkas&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Marhey:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kufam:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Changa:wght@400;500;600;700;800&display=swap');
+/* Font imports moved to HTML with preload for better performance */
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.3;
     margin-bottom: 1rem;
-    font-family: 'Rakkas', 'Aref Ruqaa Ink', serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     letter-spacing: 0;
     text-transform: none;
 }
 
 .hero-content h1 {
-    font-weight: 800;
-    font-family: 'Lalezar', 'Rakkas', cursive;
+    font-weight: 500;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-size: 3.5rem;
     letter-spacing: 0;
     text-transform: none;
@@ -145,8 +135,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-header h2 {
-    font-weight: 700;
-    font-family: 'Aref Ruqaa Ink', serif;
+    font-weight: 500;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-size: 2.8rem;
     letter-spacing: 0;
     text-transform: none;
@@ -189,18 +179,16 @@ img {
     color: white;
     text-decoration: none;
     border-radius: 30px;
-    font-weight: 700;
+    font-weight: 600;
     transition: var(--transition);
     border: none;
     cursor: pointer;
     box-shadow: 0 6px 20px rgba(3, 105, 161, 0.2);
-    font-family: 'El Messiri', 'Tajawal', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-size: 1.3rem;
     letter-spacing: 0;
     text-transform: none;
     position: relative;
-    overflow: hidden;
-    z-index: 1;
     overflow: hidden;
     z-index: 1;
 }
@@ -253,19 +241,17 @@ img {
     border-radius: var(--border-radius);
     background: var(--gradient-secondary);
     color: white;
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
     letter-spacing: 0;
+    display: inline-block;
+    text-decoration: none;
+    transition: var(--transition);
     box-shadow: 0 6px 15px rgba(3, 105, 161, 0.15);
-    transition: all 0.3s ease;
-    display: block;
-    margin: 20px auto 10px;
-    width: 80%;
-    text-transform: none;
-    font-family: 'El Messiri', 'Tajawal', sans-serif;
     position: relative;
     overflow: hidden;
     z-index: 1;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .btn-small:hover {
@@ -275,8 +261,24 @@ img {
 
 .section-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     position: relative;
+}
+
+/* تطبيق خط Tajawal على جميع العناوين ذات اللون الأحمر */
+.section-header h2 span[style*="color: var(--i-color)"], 
+.section-header h2 span[style*="color:#e74c3c"], 
+h1 span[style*="color: var(--i-color)"], 
+h1 span[style*="color:#e74c3c"], 
+h2 span[style*="color: var(--i-color)"], 
+h2 span[style*="color:#e74c3c"], 
+h3 span[style*="color: var(--i-color)"], 
+h3 span[style*="color:#e74c3c"], 
+h4 span[style*="color: var(--i-color)"], 
+h4 span[style*="color:#e74c3c"] {
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0;
 }
 
 .section-header h2 {
@@ -285,6 +287,7 @@ img {
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .section-header h2::before {
@@ -359,8 +362,8 @@ header .container {
 
 .logo a {
     font-size: 3.5rem;
-    font-weight: 800;
-    font-family: 'Lalezar', 'Rakkas', cursive;
+    font-weight: 700;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     letter-spacing: 0;
     position: relative;
     display: inline-block;
@@ -428,6 +431,8 @@ header .container {
     text-shadow: 2px 2px 3px rgba(231, 76, 60, 0.2);
     position: relative;
     display: inline-block;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
+    font-weight: 500;
 }
 
 .i-color::after {
@@ -447,6 +452,7 @@ header .container {
     text-shadow: 2px 2px 3px rgba(22, 163, 74, 0.2);
     position: relative;
     display: inline-block;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .s-color::after {
@@ -466,6 +472,7 @@ header .container {
     text-shadow: 2px 2px 3px rgba(3, 105, 161, 0.2);
     position: relative;
     display: inline-block;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .t-color::after {
@@ -477,7 +484,7 @@ header .container {
     border-radius: 50%;
     top: 0;
     right: -3px;
-    animation: pulse 2s infinite 1s;
+    animation: pulse 2s infinite 1s; will-change: transform, opacity;
 }
 
 @keyframes pulse {
@@ -546,7 +553,7 @@ nav {
     font-size: 1.2rem;
     letter-spacing: 0;
     text-transform: none;
-    font-family: 'El Messiri', 'Tajawal', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     display: block;
 }
 
@@ -620,15 +627,17 @@ nav {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 15px 20px;
     border-radius: 10px;
-    animation: fadeInDown 1s ease-out;
+    animation: fadeInDown 1s ease-out; will-change: transform, opacity;
 }
 
 .welcome-heading {
     font-size: 3.5rem;
     margin-bottom: 10px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
     line-height: 1.3;
     text-align: center;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
+    font-weight: 500;
 }
 
 .logo-centered {
@@ -686,9 +695,9 @@ nav {
     margin-left: auto;
     margin-right: auto;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-    animation: fadeInUp 1s ease-out 0.3s;
+    animation: fadeInUp 1s ease-out 0.3s; will-change: transform, opacity;
     animation-fill-mode: both;
-    font-family: 'El Messiri', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-size: 1.2rem;
     letter-spacing: 0.5px;
     background-color: rgba(0, 0, 0, 0.4);
@@ -739,7 +748,7 @@ nav {
 .about-text p {
     margin-bottom: 15px;
     font-size: 1.1rem;
-    font-family: 'El Messiri', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-size: 1.2rem;
     letter-spacing: 0.5px;
 }
@@ -850,7 +859,7 @@ nav {
     color: var(--muted-color);
     line-height: 1.7;
     font-size: 1.1rem;
-    font-family: 'El Messiri', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-size: 1.2rem;
     letter-spacing: 0.5px;
 }
@@ -934,6 +943,7 @@ nav {
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 100%;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 /* Contact Section */
@@ -1260,9 +1270,9 @@ footer::after {
 .footer-departments a {
     color: rgba(255, 255, 255, 0.85);
     transition: var(--transition);
-    font-family: 'El Messiri', sans-serif;
     font-size: 1.1rem;
     display: block;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .footer-links a:hover,
@@ -1281,7 +1291,7 @@ footer::after {
 }
 
 .copyright p {
-    font-family: 'El Messiri', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-size: 1rem;
     opacity: 0.8;
     transition: all 0.3s ease;
@@ -1453,6 +1463,7 @@ a, button, input, select, textarea, label {
         margin: 0;
         direction: rtl;
         color: #333;
+        font-family: 'Tajawal', 'El Messiri', sans-serif;
     }
     
     /* تنسيقات بطاقات الأقسام */
@@ -1483,6 +1494,7 @@ a, button, input, select, textarea, label {
         overflow-wrap: break-word;
         word-wrap: break-word;
         word-break: break-word;
+        font-family: 'Tajawal', 'El Messiri', sans-serif;
     }
     
     .courses-list,
@@ -1513,6 +1525,7 @@ a, button, input, select, textarea, label {
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         position: relative;
         z-index: 5;
+        font-family: 'Tajawal', 'El Messiri', sans-serif;
     }
     
     .register-btn i {
@@ -1760,6 +1773,7 @@ header {
         background-color: #ffffff !important;
         opacity: 1;
         visibility: visible;
+        font-family: 'Tajawal', 'El Messiri', sans-serif;
     }
     
     .nav-menu li:last-child a {
@@ -1946,7 +1960,7 @@ header {
     color: white;
     border-radius: 30px;
     font-weight: 600;
-    font-family: 'El Messiri', 'Tajawal', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     transition: all 0.3s ease;
     text-decoration: none;
     box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
@@ -1990,7 +2004,7 @@ header {
 }
 
 .whatsapp-subtitle {
-    font-family: 'El Messiri', 'Tajawal', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-size: 1.2rem;
     margin-bottom: 20px;
     text-align: center;
@@ -2029,7 +2043,7 @@ header {
 }
 
 .whatsapp-option span {
-    font-family: 'El Messiri', 'Tajawal', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
 }
@@ -2096,6 +2110,7 @@ header {
     position: relative;
     display: inline-block;
     padding: 0 3px;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .phone-link::after {
@@ -2159,7 +2174,7 @@ footer::before {
     margin-top: 10px;
     font-size: 1.1rem;
     line-height: 1.6;
-    font-family: 'El Messiri', 'Tajawal', sans-serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .footer-links h3, .footer-departments h3 {
@@ -2168,7 +2183,7 @@ footer::before {
     margin-bottom: 20px;
     position: relative;
     display: inline-block;
-    font-family: 'Aref Ruqaa Ink', 'Amiri', serif;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .footer-links h3::after, .footer-departments h3::after {
@@ -2197,6 +2212,7 @@ footer::before {
     position: relative;
     padding-right: 20px;
     display: inline-block;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 .footer-links a:before, .footer-departments a:before {
@@ -2230,6 +2246,7 @@ footer::before {
 .copyright p {
     color: #94a3b8;
     font-size: 1rem;
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
 }
 
 /* تأثيرات إضافية للفوتر */
@@ -2295,6 +2312,8 @@ footer::before {
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: var(--primary-color);
+    font-family: 'Tajawal', 'El Messiri', sans-serif;
+    font-weight: 500;
 }
 
 .about-card p {

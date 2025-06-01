@@ -99,48 +99,71 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Active menu item based on scroll position with performance optimization
+    // Active menu item based on scroll position with optimized performance
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.desktop-nav a, .nav-menu a');
-    
-    // Use requestAnimationFrame for better scroll performance
-    let ticking = false;
-    
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                let current = '';
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const scrollPosition = window.pageYOffset;
-                
-                sections.forEach(section => {
-                    if (!section.id) return;
-                    const sectionTop = section.offsetTop - headerHeight - 100;
-                    const sectionHeight = section.offsetHeight;
-                    
-                    if (scrollPosition >= sectionTop) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    const href = item.getAttribute('href');
-                    if (href === `#${current}`) {
-                        item.classList.add('active');
-                        // Add ARIA attributes for accessibility
-                        item.setAttribute('aria-current', 'page');
-                    } else {
-                        item.removeAttribute('aria-current');
-                    }
-                });
-                
-                ticking = false;
+
+    // Use Intersection Observer instead of scroll event for better performance
+    if ('IntersectionObserver' in window) {
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // When section is visible
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    const id = entry.target.getAttribute('id');
+                    // Update navigation only when needed
+                    navItems.forEach(item => {
+                        if (item.getAttribute('href') === `#${id}`) {
+                            if (!item.classList.contains('active')) {
+                                navItems.forEach(navItem => {
+                                    navItem.classList.remove('active');
+                                    navItem.removeAttribute('aria-current');
+                                });
+                                item.classList.add('active');
+                                item.setAttribute('aria-current', 'page');
+                            }
+                        }
+                    });
+                }
             });
-            
-            ticking = true;
-        }
-    }, { passive: true });
+        }, { threshold: [0.5], rootMargin: '-10% 0px -70% 0px' });
+        
+        // Observe all sections
+        sections.forEach(section => navObserver.observe(section));
+    } else {
+        // Fallback to scroll event with throttling for older browsers
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    let current = '';
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop - headerHeight - 100;
+                        const sectionHeight = section.offsetHeight;
+                        const sectionId = section.getAttribute('id');
+                        
+                        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                            current = sectionId;
+                        }
+                    });
+                    
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        item.removeAttribute('aria-current');
+                        if (item.getAttribute('href') === `#${current}`) {
+                            item.classList.add('active');
+                            item.setAttribute('aria-current', 'page');
+                        }
+                    });
+                    
+                    ticking = false;
+                });
+                
+                ticking = true;
+            }
+        }, { passive: true });
+    }
     
     // Form submission handling with accessibility improvements
     const contactForm = document.querySelector('.contact-form form');
@@ -214,78 +237,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Add touch-friendly hover effects for mobile
-    const touchElements = document.querySelectorAll('.department-card, .facility-item, .course-item, .career-item, .whatsapp-option');
-    
-    touchElements.forEach(element => {
-        element.addEventListener('touchstart', function() {
-            this.classList.add('touch-hover');
-        }, {passive: true});
-        
-        element.addEventListener('touchend', function() {
-            this.classList.remove('touch-hover');
-        }, {passive: true});
-    });
-    
-    // Lazy loading images for better performance
-    if ('loading' in HTMLImageElement.prototype) {
-        // Browser supports native lazy loading
-        const images = document.querySelectorAll('img:not([loading])');
-        images.forEach(img => {
-            img.setAttribute('loading', 'lazy');
-            
-            // Ensure all images have alt text for accessibility
-            if (!img.hasAttribute('alt')) {
-                img.setAttribute('alt', '');
-            }
-        });
-    } else {
-        // Fallback for browsers that don't support lazy loading using Intersection Observer
-        const lazyImages = document.querySelectorAll('img:not([src]):not([data-src])');
-        lazyImages.forEach(img => {
-            if (img.src) {
-                img.dataset.src = img.src;
-                img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
-            }
-        });
-        
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                        }
-                        imageObserver.unobserve(img);
-                    }
+    // Preload important resources - optimized to avoid DOM manipulation
+    function preloadResources() {
+        // Font preloading moved to HTML with rel="preload" for better performance
+        // Preload any dynamic resources that might be needed later
+        if (window.requestIdleCallback) {
+            requestIdleCallback(() => {
+                // Preload department page images when idle
+                const departmentLinks = document.querySelectorAll('.department-card a');
+                departmentLinks.forEach(link => {
+                    const prefetcher = document.createElement('link');
+                    prefetcher.rel = 'prefetch';
+                    prefetcher.href = link.getAttribute('href');
+                    document.head.appendChild(prefetcher);
                 });
             });
-            
-            lazyImages.forEach(img => {
-                if (img.dataset.src) {
-                    imageObserver.observe(img);
-                }
-            });
         }
-    }
-    
-    // Preload important resources
-    function preloadResources() {
-        // Preload critical fonts
-        const fontPreloads = [
-            'https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap',
-            'https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&display=swap'
-        ];
-        
-        fontPreloads.forEach(font => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.href = font;
-            link.as = 'style';
-            document.head.appendChild(link);
-        });
     }
     
     preloadResources();
@@ -294,19 +261,34 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
         
-        // Performance metrics logging
-        if (window.performance && window.performance.timing) {
-            setTimeout(function() {
-                const timing = window.performance.timing;
-                const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
-                const domReadyTime = timing.domComplete - timing.domLoading;
-                
-                console.log('Page load time: ' + pageLoadTime + 'ms');
-                console.log('DOM ready time: ' + domReadyTime + 'ms');
-                
-                // Send metrics to analytics if needed
-                // analyticsService.sendMetric('pageLoadTime', pageLoadTime);
-            }, 0);
+        // Performance metrics logging with modern Performance API
+        if ('performance' in window) {
+            // Use newer Performance API methods when available
+            if (window.PerformanceObserver) {
+                try {
+                    const observer = new PerformanceObserver((list) => {
+                        const entries = list.getEntries();
+                        entries.forEach(entry => {
+                            // Only log important metrics
+                            if (['largest-contentful-paint', 'first-input', 'layout-shift'].includes(entry.entryType)) {
+                                console.log(`${entry.entryType}: `, entry);
+                            }
+                        });
+                    });
+                    
+                    // Observe key performance metrics
+                    observer.observe({entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift']});
+                } catch (e) {
+                    // Fallback to traditional metrics
+                    setTimeout(function() {
+                        if (window.performance.timing) {
+                            const timing = window.performance.timing;
+                            const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
+                            console.log('Page load time: ' + pageLoadTime + 'ms');
+                        }
+                    }, 0);
+                }
+            }
         }
     });
     
