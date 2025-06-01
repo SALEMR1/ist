@@ -14,9 +14,12 @@
     <title>قسم الخدمات البترولية واللحام - معهد I.S.T</title>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="mobile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="mobile.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </noscript>
     <link rel="canonical" href="https://www.ist-edu.com/petroleum.html">
     <style>
         .department-hero {
@@ -250,7 +253,7 @@
     </header>
 
     <!-- Department Hero Section -->
-    <section class="hero department-hero" id="main-content">
+    <section class="hero department-hero">
         <div class="container">
             <div class="hero-content">
                 <h1>قسم الخدمات البترولية واللحام</h1>
@@ -455,7 +458,7 @@
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="script.min.js" defer></script>
     <script>
         // Add page load performance improvements
         document.addEventListener('DOMContentLoaded', function() {
